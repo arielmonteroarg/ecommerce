@@ -28,7 +28,7 @@ const cartState = {
     },
 
       // Actualizar un producto específico en el carrito
-  updateItem(id, quantity) {
+  updateItem(id = '', quantity = '') {
     const item = this.items.find((product) => product.id === id); // Buscar el producto por ID
     if (item) {
       item.quantity = quantity; // Actualizar la cantidad

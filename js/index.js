@@ -38,7 +38,9 @@ if (container) {
   console.error("El contenedor de productos no se encontró.");
 }
   
-  function createProductCard(product) {
+  function createProductCard(product = ' ' ) {
+
+  
     const card = document.createElement("div");
     card.className = "product-card";
   
@@ -68,7 +70,7 @@ if (container) {
     addToCartButton.textContent = "Agregar al Carrito";
     addToCartButton.addEventListener("click", () => {
       cartState.addToCart(product);
-
+//llamar a funcion 
       Swal.fire({
         position: "top-end",
         icon: "success",
