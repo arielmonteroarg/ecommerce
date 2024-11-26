@@ -1,0 +1,126 @@
+/* Estilos básicos para todo el sitio */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9fafb;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilos del navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-icons a {
+  font-size: 1.2rem;
+  color: #333;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.nav-icons a:hover {
+  color: #007bff;
+}
+
+/* Contenedor de productos */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+/* Tarjeta de producto */
+.product-card {
+  position: relative; /* Necesario para que los elementos absolutos se posicionen dentro de la tarjeta */
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+/* Imagen de producto */
+.product-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Precio (siempre visible) */
+.product-card .price {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: #ec4899;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 16px;
+  font-size: 14px;
+  z-index: 1; /* Asegura que no sea cubierto por otros elementos */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Detalles de producto */
+.product-card .details {
+  padding: 16px;
+}
+
+.product-card .details h3 {
+  font-size: 18px;
+  color: #1f2937;
+  margin: 0;
+}
+
+.product-card .details p {
+  font-size: 14px;
+  color: #6b7280;
+  margin: 8px 0;
+}
+
+.product-card .details .category {
+  color: #ec4899;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+/* Botón Agregar al Carrito */
+.product-card .add-to-cart {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ec4899;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 24px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+
+.product-card .add-to-cart:hover {
+  background: #db2777;
+}
