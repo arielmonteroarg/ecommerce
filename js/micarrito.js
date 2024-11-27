@@ -21,7 +21,7 @@ function renderCartItems() {
 
 
     const cartItem = createElement("div", { className: "cart-item" });
-    
+
     // Estructura de cada producto
     cartItem.innerHTML = `
       <div class="cart-item-image">
