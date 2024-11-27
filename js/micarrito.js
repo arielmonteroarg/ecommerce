@@ -1,3 +1,4 @@
+import { createElement } from './funcionesExtras.js';
 // Renderizar productos en el carrito
 function renderCartItems() {
   cartState.init(); // Inicializar desde localStorage
@@ -17,9 +18,10 @@ function renderCartItems() {
 
   // Renderizar productos del carrito
   cartState.items.forEach((item) => {
-    const cartItem = document.createElement("div");
-    cartItem.className = "cart-item";
 
+
+    const cartItem = createElement("div", { className: "cart-item" });
+    
     // Estructura de cada producto
     cartItem.innerHTML = `
       <div class="cart-item-image">

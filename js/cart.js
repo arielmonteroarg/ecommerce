@@ -16,7 +16,7 @@ const cartState = {
       localStorage.setItem('cartTotal', this.total.toFixed(2));
     },
   
-    addToCart(product) {
+    addToCart(product= '') {
       const existingItem = this.items.find(item => item.id === product.id);
       if (existingItem) {
         existingItem.quantity += 1;

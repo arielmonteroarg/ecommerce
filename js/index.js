@@ -1,4 +1,5 @@
 
+import { createElement } from './funcionesExtras.js';
 const products = [
     {
       id: 1,
@@ -41,33 +42,34 @@ if (container) {
   function createProductCard(product = ' ' ) {
 
   
-    const card = document.createElement("div");
-    card.className = "product-card";
+    const card = createElement("div", { className: "product-card" });
   
-    const img = document.createElement("img");
-    img.src = product.image;
-    img.alt = product.name;
+    const img = createElement("img", {
+      attributes: { src: product.image, alt: product.name }
+    });
   
-    const priceTag = document.createElement("div");
-    priceTag.className = "price";
-    priceTag.textContent = `$${product.price.toFixed(2)}`;
   
-    const details = document.createElement("div");
-    details.className = "details";
+    const priceTag = createElement("div", {
+      className: "price",
+      textContent: `$${product.price.toFixed(2)}`
+    });
   
-    const title = document.createElement("h3");
-    title.textContent = product.name;
+    const details = createElement("div", { className: "details" });
+
+    const title = createElement("h3", { textContent: product.name });
   
-    const description = document.createElement("p");
-    description.textContent = product.description;
+    const description = createElement("p", { textContent: product.description });
   
-    const category = document.createElement("span");
-    category.className = "category";
-    category.textContent = product.category;
+    const category = createElement("span", {
+      className: "category",
+      textContent: product.category
+    });
   
-    const addToCartButton = document.createElement("button");
-    addToCartButton.className = "add-to-cart";
-    addToCartButton.textContent = "Agregar al Carrito";
+    const addToCartButton = createElement("button", {
+      className: "add-to-cart",
+      textContent: "Agregar al Carrito"
+    });
+
     addToCartButton.addEventListener("click", () => {
       cartState.addToCart(product);
 //llamar a funcion 
