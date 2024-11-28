@@ -1,4 +1,6 @@
 import { createElement } from './funcionesExtras.js';
+import { updateCartCounter } from './cartCounter.js';
+import { cartState } from './cart.js';
 // Renderizar productos en el carrito
 function renderCartItems() {
   cartState.init(); // Inicializar desde localStorage
@@ -49,7 +51,7 @@ function renderCartItems() {
         icon: "error",
         title: "Se Elimino Un item",
         showConfirmButton: false,
-        timer: 1000
+        timer: 1500
       });
     });
 
@@ -64,13 +66,15 @@ function renderCartItems() {
         item.quantity--;
         cartState.updateItem(item.id, item.quantity);
         renderCartItems();
-        Swal.fire({
-          position: "top-end",
-          icon: "error",
-          title: "Se Desconto Un item",
-          showConfirmButton: false,
-          timer: 500
-        });
+        Toastify({
+          text: "Producto eliminado del carrito",
+          duration: 3000,
+          gravity: "top",
+          position: "right",
+             style: {
+            background: "linear-gradient(to right, #ff5f6d, #ffc3a0)"  // Usando style.background
+          }
+        }).showToast();
       }
     });
 
@@ -79,13 +83,15 @@ function renderCartItems() {
       item.quantity++;
       cartState.updateItem(item.id, item.quantity);
       renderCartItems();
-      Swal.fire({
-        position: "top-end",
-        icon: "success",
-        title: "Se Agrego Un item",
-        showConfirmButton: false,
-        timer: 500
-      });
+      Toastify({
+        text: "Producto agregado al carrito!",
+        duration: 3000,
+        gravity: "top",
+        position: "right",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)" // Usando style.background
+        }
+      }).showToast();
     });
 
     // Cambiar cantidad manualmente
@@ -105,9 +111,9 @@ function renderCartItems() {
   // Mostrar el total
   cartTotalElement.textContent = cartState.total.toFixed(2);
 }
-
 // Renderizar los productos al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
   cartState.init(); // Inicializa el carrito al cargar
   renderCartItems(); // Renderiza los productos
+  updateCartCounter();
 });

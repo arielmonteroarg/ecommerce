@@ -1,5 +1,6 @@
 
 import { createElement } from './funcionesExtras.js';
+import { cartState } from './cart.js';
 const products = [
     {
       id: 1,
@@ -72,7 +73,6 @@ if (container) {
 
     addToCartButton.addEventListener("click", () => {
       cartState.addToCart(product);
-//llamar a funcion 
       Swal.fire({
         position: "top-end",
         icon: "success",
